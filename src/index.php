@@ -16,13 +16,14 @@ function search(array $docs, string $searchedText): array
         foreach ($words as $word) {
             $word = removeSpecialChars($word);
             if ($word === $searchedText) {
-                $result[] = $id;
-                break;
+                $result[$id] = isset($result[$id]) ? $result[$id] + 1 : 1;
             }
         }
     }
 
-    return $result;
+    arsort($result);
+
+    return array_keys($result);
 }
 
 function removeSpecialChars(string $word): ?string

@@ -15,9 +15,9 @@ class SearchTest extends TestCase
         ['id' => 'doc3', 'text' => "I'm your shooter."],
     ];
 
-    public function test1(): void
+    public function testRelevance(): void
     {
-        $expected = ['doc1', 'doc2'];
+        $expected = ['doc2', 'doc1'];
         $actial = search($this->docs, 'shoot');
 
         assertEquals($expected, $actial);
