@@ -17,26 +17,41 @@ class SearchTest extends TestCase
 
     public function testRelevance(): void
     {
-        assertEquals(['doc2', 'doc1'], search($this->docs, 'shoot'));
+        assertEquals(
+            ['doc2', 'doc1'],
+            search($this->docs, 'shoot')
+        );
     }
 
     public function test2(): void
     {
-        assertEquals(['doc1'], search($this->docs, 'pint'));
+        assertEquals(
+            ['doc1'],
+            search($this->docs, 'pint')
+        );
     }
 
     public function test3(): void
     {
-        assertEquals(['doc1'], search($this->docs, 'pint!!!'));
+        assertEquals(
+            ['doc1'],
+            search($this->docs, 'pint!!!')
+        );
     }
 
     public function test4(): void
     {
-        assertEquals([], search($this->docs, 'Shot'));
+        assertEquals(
+            [],
+            search($this->docs, 'Shot')
+        );
     }
 
     public function test5(): void
     {
-        assertEquals([], search([], 'hello'));
+        assertEquals(
+            [],
+            search([], 'hello')
+        );
     }
 }
