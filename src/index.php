@@ -8,15 +8,20 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 function search(array $docs, string $searchedText): array
 {
-    $searchedText = removeSpecialChars($searchedText);
     $result = [];
 
     foreach ($docs as ['id' => $id, 'text' => $text]) {
-        $words = explode(' ', $text);
-        foreach ($words as $word) {
-            $word = removeSpecialChars($word);
-            if ($word === $searchedText) {
-                $result[$id] = isset($result[$id]) ? $result[$id] + 1 : 1;
+        $textWords = explode(' ', $text);
+        $searchedWords = explode(' ', $searchedText);
+
+        foreach ($searchedWords as $searchedWord) {
+            $searchedWord = removeSpecialChars($searchedWord);
+            
+            foreach ($textWords as $textWord) {
+                $textWord = removeSpecialChars($textWord);
+                if ($textWord === $searchedWord) {
+                    $result[$id] = isset($result[$id]) ? $result[$id] + 1 : 1;
+                }
             }
         }
     }

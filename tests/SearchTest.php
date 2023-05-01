@@ -54,4 +54,12 @@ class SearchTest extends TestCase
             search([], 'hello')
         );
     }
+
+    public function test6(): void
+    {
+        assertEquals(
+            ['doc2', 'doc1'],
+            search($this->docs, 'shoot at me')
+        );
+    }
 }
