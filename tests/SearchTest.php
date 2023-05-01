@@ -18,40 +18,40 @@ class SearchTest extends TestCase
     public function testRelevance(): void
     {
         $expected = ['doc2', 'doc1'];
-        $actial = search($this->docs, 'shoot');
+        $actual = search($this->docs, 'shoot');
 
-        assertEquals($expected, $actial);
+        assertEquals($expected, $actual);
     }
 
     public function test2(): void
     {
         $expected = ['doc1'];
-        $actial = search($this->docs, 'pint');
+        $actual = search($this->docs, 'pint');
 
-        assertEquals($expected, $actial);
+        assertEquals($expected, $actual);
     }
 
     public function test3(): void
     {
         $expected = ['doc1'];
-        $actial = search($this->docs, 'pint!!!');
+        $actual = search($this->docs, 'pint!!!');
 
-        assertEquals($expected, $actial);
+        assertEquals($expected, $actual);
     }
 
     public function test4(): void
     {
         $expected = [];
-        $actial = search($this->docs, 'Shot');
+        $actual = search($this->docs, 'Shot');
 
-        assertEquals($expected, $actial);
+        assertEquals($expected, $actual);
     }
 
     public function test5(): void
     {
         $expected = [];
-        $actial = search([], 'hello');
+        $actual = search([], 'hello');
 
-        assertEquals($expected, $actial);
+        assertEquals($expected, $actual);
     }
 }
